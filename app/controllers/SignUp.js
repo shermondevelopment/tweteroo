@@ -1,10 +1,10 @@
 /* arrayUsers */
 const myUsers = []
+export let profile
 
-const SignUpController = (req, res) => {
+export const SignUpController = (req, res) => {
   const { username, avatar } = req.body
+  profile = avatar;
   myUsers.push({ username, avatar })
   res.status(201).send('OK')
 }
-
-export default SignUpController

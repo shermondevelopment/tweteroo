@@ -1,8 +1,10 @@
+import { profile } from "./SignUp.js"
+
 const tweets = []
 
 export const TweetsController = (req, res) => {
   const { username, tweet } = req.body
-  tweets.push({ username, tweet })
+  tweets.push({ username, avatar: profile, tweet })
   res.status(201).send('OK')
 }
 

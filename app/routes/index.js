@@ -1,6 +1,6 @@
 import { Router } from 'express'
 
-import SignUpController from '../controllers/SignUp.js'
+import {SignUpController} from '../controllers/SignUp.js'
 import {TweetsController, TweetsReadController} from '../controllers/Tweet.js'
 
 const router = Router()
