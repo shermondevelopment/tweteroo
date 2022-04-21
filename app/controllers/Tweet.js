@@ -15,3 +15,9 @@ export const TweetsReadController = (req, res) => {
   const lastTenTweets = tweets.slice(-10)
   res.status(200).json(lastTenTweets)
 }
+
+export const TweetsReadUser = (req, res) => {
+  const { username } = req.params
+  const filterTwettsUser = tweets.filter( item => item.username.toLocaleLowerCase() === username.toLocaleLowerCase() )
+  return res.status(200).json(filterTwettsUser)
+}
