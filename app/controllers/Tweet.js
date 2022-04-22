@@ -8,7 +8,7 @@ export const TweetsController = (req, res) => {
   if(!user || !tweet) {
     return res.status(400).send('Todos os campos são obrigatórios!')
   }
-  tweets.push({ username: user, avatar: profile, tweet })
+  tweets.unshift({ username: user, avatar: profile, tweet })
   res.status(201).send('OK')
 }
 
@@ -17,8 +17,7 @@ export const TweetsReadController = (req, res) => {
   if(page <= 0) {
     return res.status(400).send('Informe uma página válida!')
   }
-  const lastTenTweets = tweets.reverse().slice((parseInt(page) - 1) * 10, parseInt(page) * 10)
-  tweets.reverse()
+  const lastTenTweets = tweets.slice((parseInt(page) - 1) * 10, parseInt(page) * 10)
   res.status(200).json(lastTenTweets)
 }
 
