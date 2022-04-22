@@ -12,7 +12,10 @@ export const TweetsController = (req, res) => {
 }
 
 export const TweetsReadController = (req, res) => {
-  const lastTenTweets = tweets.slice(-10)
+  const {  page } = req.query
+  const offset = parseInt(page) === 1 ? 0 : page
+  const lastTenTweets = tweets.reverse().slice((parseInt(page) - 1) * 10, parseInt(page) * 10)
+  console.log((parseInt(page) - 1) * 10, parseInt(page) * 10);
   res.status(200).json(lastTenTweets)
 }
 
